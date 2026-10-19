@@ -1,0 +1,222 @@
+/* ==========================================
+   BOOK PAGE STYLES
+   ========================================== */
+
+.book-page-wrapper { background: #1a1a2e; min-height: 90vh; padding-bottom: 3rem; }
+
+.book-header { color: #fff; }
+.book-page-title { font-weight: 800; font-size: 1.8rem; }
+
+/* ── Filter Bar ─────────────────────────── */
+.filter-bar { background: rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem 1.5rem; }
+.filter-bar .form-control { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 8px; }
+.filter-bar .form-control::placeholder { color: rgba(255,255,255,0.5); }
+.filter-bar .form-control:focus { background: rgba(255,255,255,0.15); border-color: #c9a227; box-shadow: none; color: #fff; }
+
+.category-filter-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.filter-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: #c9a227;
+  border-color: #c9a227;
+  color: #1a1a2e;
+}
+
+/* ── Book Container ─────────────────────── */
+.book-container { max-width: 800px; margin: 0 auto; }
+
+.book-inner {
+  position: relative;
+  min-height: 500px;
+}
+
+/* ── Book Pages ─────────────────────────── */
+.book-page {
+  display: none;
+  background: #fff;
+  border-radius: 12px;
+  min-height: 500px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.1);
+  animation: pageFlip 0.4s ease;
+  overflow: hidden;
+}
+.book-page.active { display: flex; flex-direction: column; }
+.book-page.prev   { display: none; }
+
+@keyframes pageFlip {
+  from { opacity: 0; transform: rotateY(-5deg) scale(0.98); }
+  to   { opacity: 1; transform: rotateY(0)    scale(1); }
+}
+
+/* Page number badge */
+.page-number {
+  position: absolute;
+  top: 12px; left: 16px;
+  background: #1a1a2e;
+  color: #c9a227;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── Cover Page ─────────────────────────── */
+.cover-page {
+  background: linear-gradient(160deg, #1a1a2e 0%, #0f3460 60%, #16213e 100%) !important;
+  color: #fff;
+  min-height: 500px;
+}
+.cover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+.cover-decoration {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  border: 2px solid rgba(201,162,39,0.15);
+  top: -80px; right: -80px;
+}
+.cover-decoration.bottom {
+  top: auto; right: auto;
+  bottom: -80px; left: -80px;
+}
+.cover-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #c9a227;
+  margin-bottom: 0.5rem;
+}
+.cover-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+.cover-line {
+  width: 80px; height: 3px;
+  background: linear-gradient(90deg, #c9a227, #e8c547);
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+.cover-count {
+  margin-top: 1rem;
+  background: rgba(201,162,39,0.2);
+  border: 1px solid rgba(201,162,39,0.4);
+  color: #c9a227;
+  padding: 8px 24px;
+  border-radius: 25px;
+  font-weight: 700;
+}
+
+/* ── Achievement Page ───────────────────── */
+.achievement-page { padding: 2.5rem 2rem; }
+
+.page-content { flex: 1; }
+
+.page-category-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.page-image-wrapper {
+  width: 100%;
+  height: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.page-image { width: 100%; height: 100%; object-fit: cover; }
+
+.page-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 0.4rem;
+}
+.page-date {
+  font-size: 0.82rem;
+  color: #95a5a6;
+  margin-bottom: 0.75rem;
+}
+.page-divider {
+  width: 50px; height: 3px;
+  background: linear-gradient(90deg, #c9a227, #e8c547);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+.page-description {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.9;
+}
+.page-footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 1rem;
+}
+.page-footer-logo {
+  color: #c9a227;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ── Navigation Controls ────────────────── */
+.book-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; }
+.btn-nav {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 25px;
+  padding: 8px 24px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-nav:hover:not(:disabled) {
+  background: #c9a227;
+  border-color: #c9a227;
+  color: #1a1a2e;
+}
+.btn-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.page-indicator {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  min-width: 130px;
+  text-align: center;
+}
+
+/* ── Empty State ────────────────────────── */
+.empty-book { color: #fff; }
+
+/* ── Responsive ─────────────────────────── */
+@media (max-width: 576px) {
+  .cover-title     { font-size: 1.8rem; }
+  .achievement-page{ padding: 1.5rem; }
+  .page-title      { font-size: 1.1rem; }
+}

@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}الرئيسية — كتاب الإنجازات{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="container position-relative text-center text-white py-5">
+    <div class="hero-icon mb-4">
+      <i class="fas fa-book-open fa-5x gold-icon"></i>
+    </div>
+    <h1 class="hero-title mb-3">كتاب الإنجازات الإدارية</h1>
+    <p class="hero-subtitle mb-4">توثيق شامل لإنجازات الإدارة عبر السنوات</p>
+    <a href="{% url 'book' %}" class="btn btn-gold btn-lg px-5 py-3">
+      <i class="fas fa-book-open me-2"></i>افتح الكتاب
+    </a>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section py-5">
+  <div class="container">
+    <div class="row g-4 text-center">
+
+      <div class="col-md-3 col-6">
+        <div class="stat-card">
+          <div class="stat-icon bg-primary-soft">
+            <i class="fas fa-trophy fa-2x text-primary"></i>
+          </div>
+          <h2 class="stat-number">{{ total }}</h2>
+          <p class="stat-label">إجمالي الإنجازات</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="stat-card">
+          <div class="stat-icon bg-blue-soft">
+            <i class="fas fa-landmark fa-2x text-blue"></i>
+          </div>
+          <h2 class="stat-number">{{ admin_count }}</h2>
+          <p class="stat-label">إدارية وتنظيمية</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="stat-card">
+          <div class="stat-icon bg-green-soft">
+            <i class="fas fa-laptop-code fa-2x text-green"></i>
+          </div>
+          <h2 class="stat-number">{{ tech_count }}</h2>
+          <p class="stat-label">رقمية وتقنية</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="stat-card">
+          <div class="stat-icon bg-yellow-soft">
+            <i class="fas fa-handshake fa-2x text-yellow"></i>
+          </div>
+          <h2 class="stat-number">{{ social_count }}</h2>
+          <p class="stat-label">اجتماعية وخدمية</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Recent Achievements -->
+{% if recent %}
+<section class="recent-section py-5 bg-light-custom">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title">أحدث الإنجازات</h2>
+      <div class="title-underline mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      {% for ach in recent %}
+      <div class="col-md-4">
+        <div class="achievement-card h-100">
+          {% if ach.image %}
+          <div class="card-img-wrapper">
+            <img src="{{ ach.image.url }}" alt="{{ ach.title }}" class="card-img-top">
+          </div>
+          {% else %}
+          <div class="card-img-placeholder">
+            <span style="font-size:3rem;">{{ ach.get_category_icon }}</span>
+          </div>
+          {% endif %}
+          <div class="card-body p-4">
+            <span class="category-badge" style="background:{{ ach.get_category_color }}22; color:{{ ach.get_category_color }}">
+              {{ ach.get_category_icon }} {{ ach.get_category_display }}
+            </span>
+            <h5 class="card-title mt-2">{{ ach.title }}</h5>
+            <p class="card-text text-muted small">{{ ach.description|truncatewords:20 }}</p>
+            <div class="card-date"><i class="fas fa-calendar-alt me-1"></i>{{ ach.date|date:"Y/m/d" }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-5">
+      <a href="{% url 'book' %}" class="btn btn-outline-gold px-4 py-2">
+        <i class="fas fa-book me-2"></i>عرض جميع الإنجازات في الكتاب
+      </a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Categories -->
+<section class="categories-section py-5">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title">تصفح حسب الفئة</h2>
+      <div class="title-underline mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <a href="{% url 'book' %}?category=admin" class="category-link">
+          <div class="category-card category-admin">
+            <i class="fas fa-landmark fa-3x mb-3"></i>
+            <h4>إدارية وتنظيمية</h4>
+            <p>المشاريع والقرارات والإنجازات التنظيمية</p>
+            <span class="category-count">{{ admin_count }} إنجاز</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="{% url 'book' %}?category=tech" class="category-link">
+          <div class="category-card category-tech">
+            <i class="fas fa-laptop-code fa-3x mb-3"></i>
+            <h4>رقمية وتقنية</h4>
+            <p>الأنظمة والبرامج والمنصات التقنية</p>
+            <span class="category-count">{{ tech_count }} إنجاز</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="{% url 'book' %}?category=social" class="category-link">
+          <div class="category-card category-social">
+            <i class="fas fa-handshake fa-3x mb-3"></i>
+            <h4>اجتماعية وخدمية</h4>
+            <p>الفعاليات والمبادرات والخدمات المجتمعية</p>
+            <span class="category-count">{{ social_count }} إنجاز</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
