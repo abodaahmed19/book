@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>كتاب إنجازات الإدارة</title>
+<title>تقرير أعمال إدارة أصول النقل والبنية التحتية</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 @font-face{font-family:"Lyon Arabic Display App";src:url("{% static 'fonts/lyon/lyon-arabic-display-light.otf' %}") format("opentype");font-style:normal;font-weight:300;font-display:swap;}
@@ -59,10 +59,9 @@ html,body{
 .book-wrapper { filter: drop-shadow(0 24px 44px rgba(38,66,64,.32)); }
 #coverScreen{
   position:relative;z-index:10;
-  display:flex;align-items:center;gap:34px;
+  display:flex;align-items:center;gap:0;
   
 }
-.identity-logo{display:block;width:165px;max-width:70%;height:auto;margin:0 auto 28px;}
 /* spine */
 .spine{
   width:36px;align-self:stretch;
@@ -74,74 +73,47 @@ html,body{
 }
 .spine-text{
   writing-mode:vertical-rl;transform:rotate(180deg);
-  color:var(--gold);font-size:.6rem;font-weight:700;
-  letter-spacing:3px;opacity:.7;white-space:nowrap;
+  color:var(--gold);font-size:.72rem;font-weight:700;
+  letter-spacing:0;opacity:.82;white-space:nowrap;
 }
 .spine-bar{position:absolute;width:22px;height:1px;background:rgba(226,195,114,.45);}
 .spine-bar.t{top:28px}.spine-bar.m{top:50%}.spine-bar.b{bottom:28px}
 
 /* cover */
 .cover{
-  width:400px;min-height:615px;
+  width:440px;height:615px;min-height:0;
   background:
-    radial-gradient(ellipse at 30% 20%,rgba(58,94,90,.48) 0%,transparent 50%),
-    linear-gradient(160deg,#3a5e5a 0%,#264240 42%,#0a1c19 82%,#264240 100%);
-  border-radius:4px 0 0 4px;
-  padding:24px 20px;
+    radial-gradient(ellipse at 45% 28%,rgba(58,94,90,.36) 0%,transparent 58%),
+    linear-gradient(180deg,#244542 0%,#173b37 58%,#09221f 100%);
+  border:1px solid rgba(226,195,114,.2);
+  border-radius:0 2px 2px 0;
+  padding:22px 24px;
   display:flex;flex-direction:column;align-items:center;
-  position:relative;overflow:hidden;cursor:pointer;
+  position:relative;overflow:hidden;cursor:pointer;color:inherit;
+  font:inherit;text-align:center;
   transition:transform .4s ease;
 }
 .cover:hover{transform:perspective(800px) rotateY(-5deg);}
+.cover:focus-visible{outline:2px solid var(--gold);outline-offset:5px;}
 .cover-frame{
   position:absolute;inset:12px;
-  border:1.5px solid rgba(226,195,114,.42);border-radius:2px;
+  border:1px solid rgba(226,195,114,.38);border-radius:2px;
   pointer-events:none;
 }
 .cover-frame::before{
   content:'';position:absolute;inset:6px;
-  border:1px solid rgba(226,195,114,.2);
+  border:1px solid rgba(226,195,114,.17);
 }
+.cover-logo{position:absolute;top:48px;width:min(350px,88%);height:auto;max-height:58px;object-fit:contain;}
 .cover-body{
   position:relative;z-index:2;
-  display:flex;flex-direction:column;align-items:center;
-  text-align:center;height:100%;padding:8px 4px;
+  display:flex;flex:1;width:100%;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:8px 4px;
 }
-.cover-quote{color:rgba(226,195,114,.78);font-size:.66rem;font-style:italic;margin-bottom:14px;line-height:1.6;}
-.cover-emblem{
-  width:88px;height:88px;margin-bottom:14px;position:relative;
-}
-.cover-emblem-ring{
-  width:100%;height:100%;border:1.5px solid rgba(226,195,114,.45);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(circle,rgba(226,195,114,.12),transparent);
-  font-size:2.4rem;color:var(--gold);
-}
-.cover-emblem::before,.cover-emblem::after{
-  content:'';position:absolute;border:1px solid rgba(226,195,114,.2);border-radius:50%;
-}
-.cover-emblem::before{inset:-7px}.cover-emblem::after{inset:-15px}
-
-.cover-title{font-size:1.45rem;font-weight:900;color:var(--gold);line-height:1.3;margin-bottom:4px;}
+.cover-title{font-size:2.65rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:5px;}
 .cover-title,.ch-title,.pc-title,h1,h2,h3,h4{font-family:var(--font-display);}
-.cover-sub{font-size:.82rem;color:var(--gold2);font-weight:600;margin-bottom:14px;}
-.c-divider{display:flex;align-items:center;gap:6px;width:100%;margin:8px 0;}
-.c-divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(226,195,114,.55),transparent);}
-.c-diamond{color:var(--gold);font-size:.65rem;opacity:.6;}
-.cover-author{font-size:.82rem;color:var(--gold2);font-weight:700;margin:4px 0 14px;}
-.cover-cats{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:8px 0;}
-.cover-cat{display:flex;flex-direction:column;align-items:center;gap:3px;color:rgba(226,195,114,.82);font-size:.62rem;font-weight:700;}
-.cover-cat i{font-size:1rem;}
-.cover-foot{margin-top:auto;color:rgba(226,195,114,.65);font-size:.62rem;font-style:italic;border-top:1px solid rgba(226,195,114,.2);padding-top:8px;width:100%;text-align:center;}
-
-.open-btn{
-  margin-top:16px;
-  background:rgba(226,195,114,.18);border:1px solid rgba(226,195,114,.55);
-  color:var(--gold);font-family:var(--font-body);font-size:.72rem;font-weight:700;
-  padding:6px 16px;border-radius:20px;cursor:pointer;
-  display:flex;align-items:center;gap:6px;transition:all .2s;
-}
-.open-btn:hover{background:var(--gold);color:var(--navy);}
+.cover-sub{font-size:1.25rem;color:rgba(255,255,255,.72);font-weight:500;}
+.cover-edition{position:absolute;bottom:20px;color:rgba(255,255,255,.78);font-size:1.05rem;font-weight:600;line-height:1.7;}
 
 /* ══════════════════════════════════════════════════════
    BOOK (StPageFlip container) — hidden until open
@@ -263,15 +235,39 @@ html,body{
 .responsibility-number{width:21px;height:21px;border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(226,195,114,.28);color:var(--navy);font-size:.62rem;font-weight:900;}
 .responsibility-text{font-size:.68rem;color:var(--ink);line-height:1.65;}
 .definition-panel{margin-top:16px;padding:18px;border-right:4px solid var(--gold-deep);background:rgba(255,255,255,.8);color:var(--ink);font-size:.86rem;line-height:2.1;box-shadow:0 2px 8px rgba(38,66,64,.08);}
-.org-chart{display:flex;flex-direction:column;gap:7px;margin:12px 0 24px;}
-.org-node{padding:9px 12px;border:1px solid rgba(38,66,64,.18);border-radius:7px;text-align:center;font-size:.86rem;font-weight:700;line-height:1.5;}
+.intro-copy{font-size:.72rem;line-height:1.75;padding:12px 14px;}
+.intro-copy p+p{margin-top:7px;}
+.org-chart{display:flex;flex-direction:column;gap:7px;margin:12px 0 24px;perspective:900px;}
+.org-node{position:relative;padding:9px 12px;border:1px solid rgba(38,66,64,.18);border-radius:7px;text-align:center;font-size:.86rem;font-weight:700;line-height:1.5;transform:rotateX(8deg);transform-style:preserve-3d;box-shadow:0 5px 0 rgba(10,28,25,.2),0 9px 14px rgba(10,28,25,.14);}
 .org-node-primary{background:var(--navy);border-color:var(--gold);color:#fff;}
-.org-node-management{background:rgba(50,164,122,.16);color:var(--navy);}
-.org-connector{width:2px;height:14px;flex:0 0 14px;margin:0 auto;background:var(--gold-deep);}
+.org-node-agency{background:linear-gradient(145deg,#244542,#102c29);border-color:#d6b65e;color:#fff;}
+.org-node-assistant{background:linear-gradient(145deg,#3a5e5a,#264240);border-color:rgba(255,255,255,.32);color:#fff;}
+.org-node-management{background:linear-gradient(145deg,#dceee6,#b7d8ca);border-color:rgba(38,66,64,.24);color:var(--navy);}
+.org-connector{width:3px;height:14px;flex:0 0 14px;margin:0 auto;background:linear-gradient(90deg,#9b7a38,#e2c372,#9b7a38);box-shadow:0 3px 4px rgba(10,28,25,.2);}
 .org-units{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;position:relative;margin-right:16px;}
 .org-units::before{content:"";position:absolute;right:-9px;top:10px;bottom:10px;border-right:2px solid var(--gold-deep);}
-.org-unit{position:relative;padding:9px 7px;border:1px solid rgba(38,66,64,.16);border-radius:6px;background:rgba(50,164,122,.1);color:var(--ink);text-align:center;font-size:.76rem;font-weight:600;line-height:1.5;}
+.org-unit{position:relative;padding:9px 7px;border:1px solid rgba(38,66,64,.16);border-radius:6px;background:linear-gradient(145deg,#fff,#dceee6);color:var(--ink);text-align:center;font-size:.76rem;font-weight:600;line-height:1.5;transform:rotateX(6deg);box-shadow:0 4px 0 rgba(38,66,64,.13),0 7px 10px rgba(10,28,25,.1);}
 .org-unit::before{content:"";position:absolute;right:-9px;top:50%;width:8px;border-top:1px solid var(--gold-deep);}
+.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:6px;align-content:start;}
+.team-card{min-height:155px;padding:8px 9px;border:1px solid rgba(38,66,64,.18);border-right:3px solid var(--gold-deep);border-radius:6px;background:linear-gradient(145deg,#fff,#eef5f1);box-shadow:0 3px 0 rgba(38,66,64,.12),0 6px 10px rgba(10,28,25,.08);}
+.team-card-name{font-size:.68rem;font-weight:700;color:var(--ink);line-height:1.4;}
+.team-card-role{font-size:.56rem;color:var(--muted);margin:3px 0 5px;line-height:1.4;}
+.team-card-detail{font-size:.53rem;color:var(--ink);line-height:1.5;margin-top:3px;}
+.team-card-detail strong{color:var(--navy);}
+.team-demo-banner{padding:5px 8px;margin:5px 0 2px;background:rgba(226,195,114,.2);border-right:3px solid var(--gold-deep);color:#604d20;font-size:.56rem;line-height:1.45;}
+.team-empty-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px;}
+.team-empty-card{height:150px;border:1px dashed rgba(38,66,64,.28);border-radius:6px;background:rgba(255,255,255,.55);position:relative;}
+.team-empty-number{position:absolute;top:7px;right:8px;color:rgba(38,66,64,.45);font-size:.65rem;}
+.project-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:5px;align-content:start;}
+.project-card{padding:9px 10px;border:1px solid rgba(38,66,64,.15);border-right:3px solid var(--gold-deep);border-radius:6px;background:linear-gradient(145deg,#fff,#eef5f1);box-shadow:0 3px 0 rgba(38,66,64,.1),0 6px 10px rgba(10,28,25,.07);}
+.project-card-title{font-size:.7rem;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:5px;}
+.project-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 8px;}
+.project-field{min-width:0;}
+.project-field-label{display:block;color:var(--muted);font-size:.5rem;line-height:1.3;}
+.project-field-value{display:block;color:var(--ink);font-size:.57rem;line-height:1.4;overflow-wrap:anywhere;}
+.project-summary{margin-top:5px;padding-top:4px;border-top:1px dashed rgba(38,66,64,.15);color:var(--ink);font-size:.56rem;line-height:1.5;}
+.project-summary strong{color:var(--navy);}
+.project-demo-banner{padding:5px 8px;margin:5px 0 2px;background:rgba(226,195,114,.2);border-right:3px solid var(--gold-deep);color:#604d20;font-size:.56rem;line-height:1.4;}
 
 /* achievement card */
 .ach-card{
@@ -337,13 +333,14 @@ html,body{
 @keyframes msgIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 
 @media (max-width: 900px) {
-  #coverScreen { flex-direction: column; text-align: center; gap: 20px; }
-  .intro-text { order: 1; margin-bottom: 20px; text-align: center !important; }
-  .book-wrapper { order: 2; }
+  #coverScreen { flex-direction: row; text-align: center; gap: 0; }
 }
 @media (max-width: 600px) {
-  .cover { width: 400px; min-height: 615px; }
+  .cover { width: 440px; height: 615px; }
   .spine { min-height: 615px; }
+  .cover-title { font-size: 2.4rem; }
+  .cover-sub { font-size: 1.1rem; }
+  .cover-edition { font-size: .95rem; }
   .page-inner { padding: 18px 15px 14px; overflow-y: auto; overscroll-behavior: contain; }
   .pg-head { margin-bottom: 12px; }
   .pg-head-org, .pg-head-logo { font-size: .7rem; }
@@ -357,10 +354,19 @@ html,body{
   .responsibility-number { width: 24px; height: 24px; font-size: .72rem; }
   .responsibility-text { font-size: .85rem; line-height: 1.5; }
   .definition-panel { padding: 14px; font-size: .95rem; line-height: 1.9; }
+  .definition-panel.intro-copy { padding: 10px 12px; font-size: .78rem; line-height: 1.65; }
   .org-chart { gap: 5px; margin: 8px 0 20px; }
   .org-node { padding: 8px; font-size: .86rem; }
   .org-units { gap: 7px; margin-right: 12px; }
   .org-unit { padding: 8px 5px; font-size: .78rem; }
+  .team-grid,.team-empty-grid{gap:6px;}
+  .team-card{min-height:160px;padding:7px;}
+  .team-card-detail{font-size:.55rem;}
+  .team-empty-card{height:140px;}
+  .project-card{padding:8px;}
+  .project-field-label{font-size:.53rem;}
+  .project-field-value{font-size:.6rem;}
+  .project-summary{font-size:.6rem;}
   .pg-num { position: static; align-self: flex-start; margin-top: 10px; }
 }
 </style>
@@ -378,46 +384,19 @@ html,body{
 
   <!-- ══════════ COVER SCREEN ══════════ -->
   <div id="coverScreen">
-
-    <div class="intro-text" style="color: var(--cream); max-width: 400px; padding: 20px; text-align: center;">
-      <img class="identity-logo" src="{% static 'images/identity-logo-white.png' %}" alt="شعار أمانة العاصمة المقدسة">
-      <h1 style="color: var(--gold); font-size: 3rem; line-height: 1.5; margin-bottom: 0; font-weight: 900; text-align: center;">الوصول<br>لأصول<br>مستدامة</h1>
-    </div>
-
-    <div class="book-wrapper" style="display:flex; ">
+    <div class="book-wrapper" style="display:flex;">
     <!-- spine -->
     <div class="spine">
       <div class="spine-text">إدارة أصول النقل والبنية التحتية</div>
     </div>
     <!-- cover -->
-    <div class="cover" onclick="openBook()">
+    <div class="cover" role="button" tabindex="0" aria-label="فتح التقرير" onclick="openBook()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBook();}">
       <div class="cover-frame"></div>
+      <img class="cover-logo" src="{% static 'images/logo_wh.png' %}" alt="إدارة أصول النقل والبنية التحتية - أمانة العاصمة المقدسة">
       <div class="cover-body">
-        <div class="cover-quote">«تنظيم الموارد.. أساس التنمية المستدامة»</div>
-        <div class="cover-emblem">
-          <div class="cover-emblem-ring"><i class="fas fa-landmark"></i></div>
-        </div>
-        <div class="cover-title">انجازات الإدارة</div>
-        <div class="cover-sub">توثيق شامل للإنجازات الإدارية</div>
-        <div class="c-divider">
-          <div class="c-divider-line"></div>
-          <div class="c-diamond">◆</div>
-          <div class="c-divider-line"></div>
-        </div>
-        <div class="cover-author">الإدارة العامة</div>
-        <div class="cover-cats">
-          <div class="cover-cat"><i class="fas fa-landmark"></i>الإدارات</div>
-          <div class="cover-cat"><i class="fas fa-users"></i>المشاريع</div>
-          <div class="cover-cat"><i class="fas fa-laptop-code"></i>الأنظمة</div>
-          <div class="cover-cat"><i class="fas fa-handshake"></i>المجتمع</div>
-        </div>
-        <div class="c-divider" style="margin-top:auto">
-          <div class="c-divider-line"></div>
-          <div class="c-diamond">◇</div>
-          <div class="c-divider-line"></div>
-        </div>
-        <div class="cover-foot">«معاً.. نحو إدارة أكثر كفاءة وإنتاجاً»</div>
-        <button class="open-btn"><i class="fas fa-book-open"></i> افتح الكتاب</button>
+        <div class="cover-title">تقرير الأعمال</div>
+        <div class="cover-sub">الوصول لأصول مستدامة</div>
+        <div class="cover-edition">الإصدار الأول<br>١٤٤٨ هـ</div>
       </div>
     </div>
   </div>
@@ -431,25 +410,43 @@ html,body{
       <!-- MANAGEMENT DEFINITION -->
       <div class="page page-inner">
         <div class="pg-head">
-          <div class="pg-head-org">كتاب الإنجازات الإدارية</div>
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
           <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
         </div>
-        <div class="ch-tag"><div class="ch-num">١</div> نبذة تعريفية</div>
-        <div class="ch-title">تعريف الإدارة</div>
-        <div class="definition-panel">إدارة الأصول والمرافق في وزارة البلديات والإسكان بالمملكة العربية السعودية هي منظومة عمل وتخطيط متكاملة تهدف إلى إدارة وتشغيل وصيانة الأصول العقارية والمرافق والبنية التحتية (مثل الطرق والأملاك والمرافق البلدية) بكفاءة عالية، وتحقيق التوازن الأمثل بين التكلفة، والأداء، والمخاطر.</div>
+        <div class="ch-tag"><div class="ch-num">١</div> تعريف التقرير</div>
+        <div class="ch-title">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
+        <div class="ch-desc">الجهة: أمانة العاصمة المقدسة<br>الشعار اللفظي: «الوصول لأصول مستدامة»<br>الفترة الزمنية: تُحدد عند اعتماد التقرير.</div>
+        <div class="definition-panel">يستعرض التقرير الوضع التنظيمي الحالي للإدارة واختصاصاتها وكوادرها البشرية، ويعرّف بمشاريعها وأعمالها الهندسية ومخرجاتها وأنظمتها التقنية. ويهدف إلى تقديم صورة مؤسسية تنفيذية عن أثر أعمال الإدارة في رفع كفاءة أصول النقل والبنية التحتية واستدامتها، ودعم توصيات التطوير التنظيمي.</div>
         <div class="pg-num" style="right:20px">١</div>
+      </div>
+
+      <div class="page page-inner">
+        <div class="pg-head">
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
+          <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
+        </div>
+        <div class="ch-tag"><div class="ch-num">٢</div> مقدمة التقرير</div>
+        <div class="ch-title">البنية التحتية واستدامة الأصول</div>
+        <div class="definition-panel intro-copy">
+          <p>في ظل الجهود الحثيثة التي تبذلها المملكة العربية السعودية لتطوير بنية تحتية حيوية ومستدامة تسهم في تنمية المكان وازدهار الإنسان، وانسجامًا مع مستهدفات رؤية المملكة 2030، تضطلع أمانة العاصمة المقدسة بدور محوري في تطوير أصول البنية التحتية وتشغيلها وصيانتها، ورفع كفاءتها وتعزيز استدامتها، بما يواكب المكانة الاستثنائية للعاصمة المقدسة ويلبي احتياجات سكانها وزوارها.</p>
+          <p>ومن هذا المنطلق، تسعى إدارة أصول النقل والبنية التحتية إلى تعزيز كفاءة إدارة الأصول والمحافظة عليها، وتطوير منظومة أعمالها من خلال الممارسات الهندسية والحلول التقنية، بما يسهم في تحقيق المستهدفات الوطنية والبلدية.</p>
+          <p>ويأتي هذا التقرير لاستعراض واقع الإدارة التنظيمي ومهامها وكوادرها البشرية، والتعريف بمشاريعها ومخرجاتها وأنظمتها التقنية، إلى جانب تقديم التوصيات التطويرية الرامية إلى تعزيز قدراتها المؤسسية ورفع كفاءة إدارة أصول النقل والبنية التحتية واستدامتها.</p>
+        </div>
+        <div class="pg-num" style="left:20px">٢</div>
       </div>
 
       <!-- CURRENT ORGANIZATIONAL STRUCTURE -->
       <div class="page page-inner">
         <div class="pg-head">
-          <div class="pg-head-org">كتاب الإنجازات الإدارية</div>
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
           <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
         </div>
-        <div class="ch-tag"><div class="ch-num">٢</div> الهيكل التنظيمي</div>
+        <div class="ch-tag"><div class="ch-num">٣</div> الهيكل التنظيمي</div>
         <div class="ch-title">الهيكل التنظيمي الحالي</div>
         <div class="org-chart">
-          <div class="org-node org-node-primary">الوكالة المساعدة للتشغيل والصيانة</div>
+          <div class="org-node org-node-primary org-node-agency">وكالة المشاريع والشؤون الفنية</div>
+          <div class="org-connector"></div>
+          <div class="org-node org-node-assistant">الوكالة المساعدة للتشغيل والصيانة</div>
           <div class="org-connector"></div>
           <div class="org-node org-node-management">إدارة أصول النقل والبنية التحتية</div>
           <div class="org-connector"></div>
@@ -457,115 +454,259 @@ html,body{
             <div class="org-unit">وحدة حصر الأصول</div>
             <div class="org-unit">وحدة تقييم الأصول</div>
             <div class="org-unit">وحدة التوثيق الآلي</div>
-            <div class="org-unit">وحدة الشئون الإدارية والتنظيمية</div>
+            <div class="org-unit">وحدة الشؤون الإدارية والتنظيمية</div>
           </div>
         </div>
-        <div class="pg-num" style="left:20px">٢</div>
+        <div class="pg-num" style="left:20px">٣</div>
       </div>
 
       <!-- ASSET MANAGEMENT OBJECTIVES -->
       <div class="page page-inner">
         <div class="pg-head">
-          <div class="pg-head-org">كتاب الإنجازات الإدارية</div>
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
           <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
         </div>
-        <div class="ch-tag"><div class="ch-num">٣</div> أهداف إدارة الأصول</div>
-        <div class="ch-title">أبرز أهداف ومهام إدارة الأصول في الوزارة</div>
+        <div class="ch-tag"><div class="ch-num">٤</div> المهام الحالية</div>
+        <div class="ch-title">مجالات الاختصاص</div>
+        <div class="ch-desc">يشترط الملف الرجوع إلى نصوص المهام الرسمية؛ ولا يورد تفاصيلها، لذا لا تُضاف اختصاصات غير معتمدة.</div>
         <div class="responsibility-list">
-          <div class="responsibility-item"><div class="responsibility-number">١</div><div class="responsibility-text">إدارة دورة حياة الأصول: تخطيط واقتناء وتشغيل وصيانة وإحلال الأصول بطريقة مستدامة لضمان القيمة الاقتصادية والاجتماعية المستمرة لها.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٢</div><div class="responsibility-text">خدمة إدارة الأصول والمرافق (عبر المنصات الرقمية): خدمة استباقية متاحة من خلال وزارة البلديات والإسكان ومنصة سكني/بلدي، تشمل أعمال النظافة الدورية، والصيانة الوقائية والتشغيلية، وخدمات الأمن والسلامة.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٣</div><div class="responsibility-text">الاستدامة المالية والاستثمار: إدارة واستثمار الأصول البلدية بما يدعم التنمية المحلية، وتعزيز الشراكات مع القطاع الخاص، والتحول من مجرد «إدارة الممتلكات» إلى «صناعة القيمة».</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٤</div><div class="responsibility-text">تطوير البنية التحتية: توحيد وتطوير أنظمة إدارة وصيانة الأصول (كأنظمة الطرق والمرافق) لتتبع عناصرها وتحليل البيانات الميدانية وتقييم العيوب بشكل منهجي.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">١</div><div class="responsibility-text">حصر الأصول.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٢</div><div class="responsibility-text">تقييم الأصول.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٣</div><div class="responsibility-text">التوثيق الآلي.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٤</div><div class="responsibility-text">إدارة الأصول.</div></div>
         </div>
-        <div class="pg-num" style="right:20px">٣</div>
+        <div class="pg-num" style="right:20px">٤</div>
       </div>
 
       <!-- TRANSPORT AND INFRASTRUCTURE ASSET MANAGEMENT RESPONSIBILITIES -->
       <div class="page page-inner">
         <div class="pg-head">
-          <div class="pg-head-org">كتاب الإنجازات الإدارية</div>
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
           <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
         </div>
-        <div class="ch-tag"><div class="ch-num">١</div> مهام إدارة الأصول</div>
-        <div class="ch-title">إدارة أصول النقل والبنية التحتية</div>
-        <div class="ch-desc">الاستدامة والاستراتيجية وحصر الأصول ونمذجتها.</div>
-        <div class="responsibility-list">
-          <div class="responsibility-item"><div class="responsibility-number">١</div><div class="responsibility-text">المساهمة في تحقيق استدامة البنية التحتية على المدى الطويل.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٢</div><div class="responsibility-text">المشاركة في وضع استراتيجيات فعالة لإدارة الأصول بشكل يحقق الاستفادة القصوى الممكنة من الأصول.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٣</div><div class="responsibility-text">إدارة عمليات التخطيط والتنظيم لصيانة الأصول وتنسيق الجهود المختلفة للحفاظ عليها وتطويرها.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٤</div><div class="responsibility-text">تحسين كفاءة استغلال الموارد وتقليل الهدر والتكاليف غير الضرورية عن طريق تحديد أولويات تشغيل وصيانة الأصول.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٥</div><div class="responsibility-text">إنشاء التسلسل الهرمي لأصول الأمانة.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٦</div><div class="responsibility-text">القيام بأعمال الحصر الآلي وأعمال الرفع ثلاثي الأبعاد لشبكات أصول الأمانة ونمذجتها.</div></div>
+        <div class="ch-tag"><div class="ch-num">٥</div> فريق العمل</div>
+        <div class="ch-title">كادر الإدارة</div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-card-name">١. م/ محمد بن صالح الطيار</div>
+            <div class="team-card-role">مدير الإدارة</div>
+            <div class="team-card-detail"><strong>التخصص:</strong> إدارة أصول النقل (افتراضي)</div>
+            <div class="team-card-detail"><strong>المؤهل:</strong> بكالوريوس هندسة مدنية (افتراضي)</div>
+            <div class="team-card-detail"><strong>المسؤوليات:</strong> تنسيق أعمال الوحدات ومتابعة خطط الإدارة (افتراضي)</div>
+            <div class="team-card-detail"><strong>إنجاز نموذجي:</strong> تطوير نموذج متابعة موحد للأصول (افتراضي)</div>
+          </div>
+          <div class="team-card">
+            <div class="team-card-name">٢. م/ أحمد بن عبدالسلام المشاط</div>
+            <div class="team-card-role">ضابط اتصال (مشرف مشاريع)</div>
+            <div class="team-card-detail"><strong>التخصص:</strong> إدارة المشاريع الهندسية (افتراضي)</div>
+            <div class="team-card-detail"><strong>المؤهل:</strong> بكالوريوس هندسة مدنية (افتراضي)</div>
+            <div class="team-card-detail"><strong>المسؤوليات:</strong> تنسيق تحديثات حالة المشاريع (افتراضي)</div>
+            <div class="team-card-detail"><strong>إنجاز نموذجي:</strong> إعداد سجل متابعة للمشاريع (افتراضي)</div>
+          </div>
+          <div class="team-card">
+            <div class="team-card-name">٣. م/ محمد بن عبدالسلام المشاط</div>
+            <div class="team-card-role">ضابط اتصال (مشرف مشاريع)</div>
+            <div class="team-card-detail"><strong>التخصص:</strong> نظم المعلومات الجغرافية (افتراضي)</div>
+            <div class="team-card-detail"><strong>المؤهل:</strong> بكالوريوس نظم معلومات (افتراضي)</div>
+            <div class="team-card-detail"><strong>المسؤوليات:</strong> تنسيق بيانات المواقع ومتابعة التحديثات (افتراضي)</div>
+            <div class="team-card-detail"><strong>إنجاز نموذجي:</strong> تنظيم نموذج توثيق مكاني للمشاريع (افتراضي)</div>
+          </div>
+          <div class="team-card">
+            <div class="team-card-name">٤. م/ وائل بن عبدالرزاق صلاواتي</div>
+            <div class="team-card-role">عضو فريق الإدارة</div>
+            <div class="team-card-detail"><strong>التخصص:</strong> هندسة النقل والبنية التحتية (افتراضي)</div>
+            <div class="team-card-detail"><strong>المؤهل:</strong> بكالوريوس هندسة مدنية (افتراضي)</div>
+            <div class="team-card-detail"><strong>المسؤوليات:</strong> دعم مراجعة بيانات الأصول والأعمال الفنية (افتراضي)</div>
+            <div class="team-card-detail"><strong>إنجاز نموذجي:</strong> إعداد قالب أولي لتصنيف ملاحظات الأصول (افتراضي)</div>
+          </div>
         </div>
-        <div class="pg-num" style="right:20px">٤</div>
+        <div class="pg-num" style="right:20px">٥</div>
       </div>
 
       <div class="page page-inner">
         <div class="pg-head">
-          <div class="pg-head-org">كتاب الإنجازات الإدارية</div>
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
           <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
         </div>
-        <div class="ch-tag"><div class="ch-num">٢</div> مهام إدارة الأصول</div>
-        <div class="ch-title">تقييم الأصول والتخطيط للصيانة</div>
-        <div class="ch-desc">تحديث البيانات، وتقييم الحالة، وتحديد الأولويات والخطط.</div>
-        <div class="responsibility-list">
-          <div class="responsibility-item"><div class="responsibility-number">٧</div><div class="responsibility-text">تحديث بيانات الحصر بالتنسيق مع وحدة التوثيق الآلي بصورة مستمرة.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٨</div><div class="responsibility-text">حصر العيوب والملاحظات الخاصة بحالة الأصول ومتطلبات وأولويات التشغيل والصيانة بالتنسيق مع وحدة تقييم الأصول.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٩</div><div class="responsibility-text">مشاركة بيانات شبكات أصول الأمانة بالتنسيق مع الإدارات ذات العلاقة.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">١٠</div><div class="responsibility-text">تقييم حالة أصول الأمانة وتحديد احتياجات وأولويات التشغيل والصيانة والتكلفة.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">١١</div><div class="responsibility-text">إعداد خطط وأوامر التشغيل والصيانة القصيرة والمتوسطة وطويلة الأمد.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">١٢</div><div class="responsibility-text">مشاركة مخرجات أنظمة إدارة تشغيل وصيانة الأصول مع الإدارات ذات العلاقة.</div></div>
+        <div class="ch-tag"><div class="ch-num">٥</div> فريق العمل</div>
+        <div class="ch-title">استكمال أعضاء الفريق</div>
+        <div class="team-empty-grid">
+          <div class="team-empty-card"><span class="team-empty-number">٥</span></div>
+          <div class="team-empty-card"><span class="team-empty-number">٦</span></div>
+          <div class="team-empty-card"><span class="team-empty-number">٧</span></div>
         </div>
-        <div class="pg-num" style="left:20px">٥</div>
+        <div class="pg-num" style="left:20px">٦</div>
       </div>
 
       <div class="page page-inner">
         <div class="pg-head">
-          <div class="pg-head-org">كتاب الإنجازات الإدارية</div>
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
           <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
         </div>
-        <div class="ch-tag"><div class="ch-num">٣</div> مهام إدارة الأصول</div>
-        <div class="ch-title">التشغيل والتوثيق الآلي</div>
-        <div class="ch-desc">التشغيل الهندسي، وإعداد الميزانيات والخطط، وتوثيق الأعمال.</div>
-        <div class="responsibility-list">
-          <div class="responsibility-item"><div class="responsibility-number">١٣</div><div class="responsibility-text">القيام بأعمال التشغيل الهندسي لأنظمة تشغيل وصيانة شبكات أصول الأمانة.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">١٤</div><div class="responsibility-text">المشاركة في تحديد ميزانيات مشاريع التشغيل والصيانة من خلال مخرجات أنظمة إدارة التشغيل والصيانة.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">١٥</div><div class="responsibility-text">إعداد الخطط الاستراتيجية لمشاريع تشغيل وصيانة أصول الأمانة.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">١٦</div><div class="responsibility-text">القيام بأعمال التوثيق الآلي لمشاريع الأمانة حسب الإجراءات المختلفة (تسليم موقع – تعديل الكميات – إيقاف – استئناف – استلام ابتدائي – استلام نهائي)، وذلك من خلال المراجعة الفنية للوثائق الخاصة بالعقود والتأكد من مطابقة الكميات المنفذة والمذكورة بالمستخلص الختامي بنظيرتها المدرجة بقواعد البيانات الجغرافية.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">١٧</div><div class="responsibility-text">القيام بأعمال التوثيق الآلي للمخططات الخاصة والاستثمارية من خلال المراجعة الفنية للوثائق الخاصة بالمخططات والتأكد من استيفاء كافة المتطلبات ومطابقة الأعمال المنفذة بقواعد البيانات الجغرافية.</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">١٨</div><div class="responsibility-text">إعداد وتدقيق سجل التوثيق النهائي للأعمال المنفذة لمشاريع الأمانة.</div></div>
-        </div>
-        <div class="pg-num" style="right:20px">٦</div>
-      </div>
-
-      <!-- EXISTING SYSTEMS -->
-      <div class="page page-inner">
-        <div class="pg-head">
-          <div class="pg-head-org">كتاب الإنجازات الإدارية</div>
-          <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
-        </div>
-        <div class="ch-tag"><div class="ch-num">٧</div> الأنظمة</div>
-        <div class="ch-title">أبرز الأنظمة القائمة</div>
-        <div class="responsibility-list">
-          <div class="responsibility-item"><div class="responsibility-number">١</div><div class="responsibility-text">وثاق</div></div>
-          <div class="responsibility-item"><div class="responsibility-number">٢</div><div class="responsibility-text">مسارات</div></div>
-          <div class="responsibility-item responsibility-subitem"><div class="responsibility-number">•</div><div class="responsibility-text">مسارات الطرق</div></div>
-          <div class="responsibility-item responsibility-subitem"><div class="responsibility-number">•</div><div class="responsibility-text">مسارات الجسور</div></div>
-          <div class="responsibility-item responsibility-subitem"><div class="responsibility-number">•</div><div class="responsibility-text">مسارات الحدائق</div></div>
-          <div class="responsibility-item responsibility-subitem"><div class="responsibility-number">•</div><div class="responsibility-text">مسارات المرافق</div></div>
+        <div class="ch-tag"><div class="ch-num">٦</div> المشاريع</div>
+        <div class="ch-title">المشاريع | ١ من ٢</div>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-card-title">١. مشروع تحسين وتقييم حالة الطرق الرئيسة بمكة المكرمة</div>
+            <div class="project-meta">
+              <div class="project-field"><span class="project-field-label">رقم العقد</span><span class="project-field-value">1448-نق-001 (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">الجهة المنفذة</span><span class="project-field-value">شركة مدى المسارات للاستشارات الهندسية (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">قيمة العقد</span><span class="project-field-value">18,750,000 ريال (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">المدة والحالة</span><span class="project-field-value">18 شهرًا | قيد التنفيذ (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">تاريخ البداية</span><span class="project-field-value">01-07-2026 (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">تاريخ النهاية</span><span class="project-field-value">31-12-2027 (افتراضي)</span></div>
+            </div>
+            <div class="project-summary"><strong>النطاق:</strong> مسح وتقييم حالة الطرق وإعداد أولويات الصيانة. <strong>المعدات:</strong> MMS وGPR وFWD، بحسب اعتماد المشروع (افتراضي).</div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-title">٢. مشروع حصر وتوثيق أصول الطرق والجسور</div>
+            <div class="project-meta">
+              <div class="project-field"><span class="project-field-label">رقم العقد</span><span class="project-field-value">1448-نق-002 (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">الجهة المنفذة</span><span class="project-field-value">شركة أبعاد المسح الجغرافي (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">قيمة العقد</span><span class="project-field-value">9,600,000 ريال (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">المدة والحالة</span><span class="project-field-value">12 شهرًا | قيد التنفيذ (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">تاريخ البداية</span><span class="project-field-value">01-09-2026 (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">تاريخ النهاية</span><span class="project-field-value">31-08-2027 (افتراضي)</span></div>
+            </div>
+            <div class="project-summary"><strong>النطاق:</strong> حصر الأصول وتوثيق مواقعها وتحديث سجلاتها الجغرافية. <strong>المعدات:</strong> معدات المسح المتحرك MMS، بحسب اعتماد المشروع (افتراضي).</div>
+          </div>
         </div>
         <div class="pg-num" style="left:20px">٧</div>
       </div>
 
-      <!-- VISION -->
       <div class="page page-inner">
         <div class="pg-head">
-          <div class="pg-head-org">كتاب الإنجازات الإدارية</div>
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
           <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
         </div>
-        <div class="ch-tag"><div class="ch-num">٨</div> التوجه المستقبلي</div>
-        <div class="ch-title">الرؤية</div>
+        <div class="ch-tag"><div class="ch-num">٦</div> المشاريع</div>
+        <div class="ch-title">المشاريع | ٢ من ٢</div>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-card-title">٣. مشروع فحص وتقييم الجسور ومنشآت تصريف السيول</div>
+            <div class="project-meta">
+              <div class="project-field"><span class="project-field-label">رقم العقد</span><span class="project-field-value">1448-نق-003 (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">الجهة المنفذة</span><span class="project-field-value">شركة روافد الفحص الهندسي (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">قيمة العقد</span><span class="project-field-value">7,850,000 ريال (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">المدة والحالة</span><span class="project-field-value">10 أشهر | قيد التنفيذ (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">تاريخ البداية</span><span class="project-field-value">01-10-2026 (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">تاريخ النهاية</span><span class="project-field-value">31-07-2027 (افتراضي)</span></div>
+            </div>
+            <div class="project-summary"><strong>النطاق:</strong> فحص العناصر وتقييم حالتها وتوثيق الملاحظات الفنية. <strong>المعدات:</strong> GPR وFWD ومقياس مقاومة الانزلاق، عند الحاجة (افتراضي).</div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-title">٤. مشروع تطوير قاعدة البيانات الجغرافية ومؤشرات الأصول</div>
+            <div class="project-meta">
+              <div class="project-field"><span class="project-field-label">رقم العقد</span><span class="project-field-value">1448-نق-004 (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">الجهة المنفذة</span><span class="project-field-value">شركة بيانات المدن للحلول التقنية (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">قيمة العقد</span><span class="project-field-value">5,400,000 ريال (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">المدة والحالة</span><span class="project-field-value">8 أشهر | قيد التنفيذ (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">تاريخ البداية</span><span class="project-field-value">01-08-2026 (افتراضي)</span></div>
+              <div class="project-field"><span class="project-field-label">تاريخ النهاية</span><span class="project-field-value">31-03-2027 (افتراضي)</span></div>
+            </div>
+            <div class="project-summary"><strong>النطاق:</strong> تنظيم قواعد بيانات الأصول وتجهيز لوحة مؤشرات مكانية لدعم المتابعة. <strong>التقنيات:</strong> قاعدة بيانات جغرافية ولوحة معلومات (افتراضي).</div>
+          </div>
+        </div>
         <div class="pg-num" style="right:20px">٨</div>
+      </div>
+
+      <!-- PROJECT EQUIPMENT -->
+      <div class="page page-inner">
+        <div class="pg-head">
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
+          <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
+        </div>
+        <div class="ch-tag"><div class="ch-num">٧</div> معدات المشاريع</div>
+        <div class="ch-title">أجهزة وتقنيات الفحص والمسح</div>
+        <div class="ch-desc">تُعرض المعدات بحسب ما ينطبق على كل مشروع، وبعد التحقق من استخدامها فعليًا.</div>
+        <div class="responsibility-list">
+          <div class="responsibility-item"><div class="responsibility-number">١</div><div class="responsibility-text">معدات المسح المتحرك (MMS).</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٢</div><div class="responsibility-text">أجهزة الرادار المخترق للأرض (GPR).</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٣</div><div class="responsibility-text">أجهزة قياس الهبوط بالوزن الساقط (FWD).</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٤</div><div class="responsibility-text">معدات قياس مقاومة الانزلاق (Skid Resistance Tester).</div></div>
+        </div>
+        <div class="pg-num" style="left:20px">٩</div>
+      </div>
+
+      <!-- PROJECT OUTPUTS -->
+      <div class="page page-inner">
+        <div class="pg-head">
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
+          <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
+        </div>
+        <div class="ch-tag"><div class="ch-num">٨</div> المخرجات</div>
+        <div class="ch-title">مخرجات الأعمال والمشاريع</div>
+        <div class="ch-desc">تُعرض النتائج الفعلية بعد تزويد الإدارة بالبيانات والمواد المعتمدة.</div>
+        <div class="responsibility-list">
+          <div class="responsibility-item"><div class="responsibility-number">١</div><div class="responsibility-text">نتائج حصر الأصول والمسوح والفحوص الهندسية.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٢</div><div class="responsibility-text">تقييم حالة الأصول ومؤشرات حالة رصف الطرق (PCI)، متى توفرت بيانات معتمدة.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٣</div><div class="responsibility-text">قواعد البيانات والسجلات الرقمية والخرائط والمخرجات الجغرافية.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٤</div><div class="responsibility-text">التقارير الفنية والدورية ومخرجات التوثيق والتقييم والتحليل.</div></div>
+        </div>
+        <div class="pg-num" style="right:20px">١٠</div>
+      </div>
+
+      <div class="page page-inner">
+        <div class="pg-head">
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
+          <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
+        </div>
+        <div class="ch-tag"><div class="ch-num">٩</div> الأنظمة التقنية</div>
+        <div class="ch-title">الأنظمة والحلول المرتبطة بالأعمال</div>
+        <div class="responsibility-list">
+          <div class="responsibility-item"><div class="responsibility-number">١</div><div class="responsibility-text"><strong>مسارات:</strong> نظام معني بالتشغيل الهندسي لأنظمة إدارة صيانة أصول البنية التحتية.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٢</div><div class="responsibility-text"><strong>سديد:</strong> نظام للبلاغات البلدية.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٣</div><div class="responsibility-text"><strong>وثاق:</strong> يُستكمل تعريف النظام ووظائفه ونطاق استخدامه بعد توفير البيانات المعتمدة.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٤</div><div class="responsibility-text"><strong>الخريطة التفاعلية لمحور الأمير محمد بن سلمان:</strong> تُعرض بياناتها المكانية والفنية بحسب الخصائص المتاحة فعليًا.</div></div>
+        </div>
+        <div class="pg-num" style="left:20px">١١</div>
+      </div>
+
+      <div class="page page-inner">
+        <div class="pg-head">
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
+          <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
+        </div>
+        <div class="ch-tag"><div class="ch-num">١٠</div> التوصيات والتطوير التنظيمي</div>
+        <div class="ch-title">مقترح رفع المستوى التنظيمي</div>
+        <div class="definition-panel">التوصية الرئيسية: رفع المستوى التنظيمي الحالي لإدارة أصول النقل والبنية التحتية إلى «إدارة عامة»، بما يتناسب مع طبيعة الاختصاصات وحجم المسؤوليات والأعمال الفنية والهندسية والتقنية التي تتولاها. هذا مقترح تطويري يُعرض لدعم دراسة القرار، وليس هيكلًا تنظيميًا معتمدًا.</div>
+        <div class="responsibility-list">
+          <div class="responsibility-item"><div class="responsibility-number">أ</div><div class="responsibility-text">مبررات الرفع: تُربط المبررات التنظيمية والفنية والتشغيلية باختصاصات الإدارة ومشاريعها ومخرجاتها والحاجة إلى تطوير منظومة إدارة الأصول.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">ب</div><div class="responsibility-text">الهيكل المقترح: يُستكمل مخطط الإدارة العامة والإدارات التابعة لها وفق الهيكل الذي سيتم اعتماده، مع مقارنة واضحة بالهيكل الحالي.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">ج</div><div class="responsibility-text">المهام المقترحة: تُحدد اختصاصات الإدارة العامة والمهام الأساسية للإدارات التابعة وتوزيع المسؤوليات والتكامل بينها بعد اعتمادها.</div></div>
+        </div>
+        <div class="pg-num" style="right:20px">١٢</div>
+      </div>
+
+      <div class="page page-inner">
+        <div class="pg-head">
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
+          <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
+        </div>
+        <div class="ch-tag"><div class="ch-num">١١</div> معايير عرض المعلومات</div>
+        <div class="ch-title">الوضوح والاتساق والموثوقية</div>
+        <div class="responsibility-list">
+          <div class="responsibility-item"><div class="responsibility-number">١</div><div class="responsibility-text">عرض المعلومات باختصار ومباشرة دون إخلال بالمضمون.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٢</div><div class="responsibility-text">تحويل البيانات الرقمية إلى مؤشرات ورسوم بيانية عند ملاءمة ذلك.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٣</div><div class="responsibility-text">استخدام قوالب موحدة للمشاريع والمعدات والأنظمة التقنية.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٤</div><div class="responsibility-text">توحيد المصطلحات الهندسية والتنظيمية، واستخدام المواد والصور والمخططات الفعلية قدر الإمكان.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٥</div><div class="responsibility-text">عدم اختلاق أرقام أو نتائج أو معلومات، وتوضيح مصدر البيانات وتاريخ تحديثها عند عرض المؤشرات.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٦</div><div class="responsibility-text">التمييز بين الوضع الحالي والمقترحات المستقبلية، وتجنب تكرار المعلومات بين الأقسام.</div></div>
+          <div class="responsibility-item"><div class="responsibility-number">٧</div><div class="responsibility-text">مراعاة سهولة القراءة والتصفح وتسلسل المعلومات، مع فهرس واضح وترقيم للصفحات.</div></div>
+        </div>
+        <div class="pg-num" style="left:20px">١٣</div>
+      </div>
+
+      <div class="page page-inner">
+        <div class="pg-head">
+          <div class="pg-head-org">تقرير أعمال إدارة أصول النقل والبنية التحتية</div>
+          <div class="pg-head-logo"><i class="fas fa-landmark"></i> الإدارة</div>
+        </div>
+        <div class="ch-tag"><div class="ch-num">١٢</div> الرسالة الأساسية</div>
+        <div class="ch-title">أثر مؤسسي واستدامة</div>
+        <div class="definition-panel">يقدم التقرير صورة مؤسسية واضحة عن دور إدارة أصول النقل والبنية التحتية، وحجم اختصاصاتها، وأهمية مشاريعها ومخرجاتها الهندسية والتقنية، بما يعكس إسهامها في المحافظة على الأصول البلدية ورفع كفاءتها واستدامتها.</div>
+        <div class="definition-panel">كما يدعم التقرير، من خلال محتواه وتنظيمه وإخراجه البصري، التوصية برفع المستوى التنظيمي للإدارة إلى إدارة عامة، بوصفها توجهًا تطويريًا يستهدف تعزيز الحوكمة والكفاءة التشغيلية والتكامل بين الاختصاصات.</div>
+        <div class="pg-num" style="right:20px">١٤</div>
       </div>
 
       </div><!-- #flipBook -->
@@ -603,16 +744,8 @@ function scaleCover() {
   const vw = window.innerWidth, vh = window.innerHeight;
   const coverScreen = document.getElementById('coverScreen');
   if(!coverScreen) return;
-  
-  let s = 1;
-  if (vw > 900) {
-    s = Math.min(vw / 900, (vh - 40) / 650);
-  } else {
-    s = Math.min(vw / 450, (vh - 40) / 1120);
-  }
-  
-  if (s > 1.65) s = 1.65;
-  if (s < 0.5) s = 0.5;
+
+  const s = Math.min((vw - 32) / 476, (vh - 32) / 615, 1.65);
   
   coverScreen.style.transform = 'scale(' + s + ')';
   coverScreen.style.transformOrigin = 'center center';
